@@ -5,13 +5,13 @@ const Teams = () => {
   const endpoint = `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/teams/`;
 
   useEffect(() => {
+    console.log('Teams API endpoint:', endpoint);
     fetch(endpoint)
       .then(res => res.json())
       .then(data => {
         const results = data.results || data;
         setTeams(results);
         console.log('Fetched teams:', results);
-        console.log('Endpoint:', endpoint);
       })
       .catch(err => console.error('Error fetching teams:', err));
   }, [endpoint]);

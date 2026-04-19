@@ -1,3 +1,4 @@
+
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Activities from './components/Activities';
@@ -6,14 +7,13 @@ import Teams from './components/Teams';
 import Users from './components/Users';
 import Workouts from './components/Workouts';
 
-
 function App() {
   return (
     <Router>
-      <nav className="navbar navbar-expand-lg mb-4">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
         <div className="container-fluid">
           <Link className="navbar-brand d-flex align-items-center" to="/">
-            <img src={process.env.PUBLIC_URL + '/logo192.png'} alt="OctoFit Logo" className="octofit-logo" />
+            <img src={process.env.PUBLIC_URL + '/logo192.png'} alt="OctoFit Logo" className="octofit-logo" style={{ width: 40, marginRight: 10 }} />
             OctoFit Tracker
           </Link>
           <div className="collapse navbar-collapse">

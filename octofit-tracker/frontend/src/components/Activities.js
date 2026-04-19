@@ -5,13 +5,13 @@ const Activities = () => {
   const endpoint = `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/activities/`;
 
   useEffect(() => {
+    console.log('Activities API endpoint:', endpoint);
     fetch(endpoint)
       .then(res => res.json())
       .then(data => {
         const results = data.results || data;
         setActivities(results);
         console.log('Fetched activities:', results);
-        console.log('Endpoint:', endpoint);
       })
       .catch(err => console.error('Error fetching activities:', err));
   }, [endpoint]);

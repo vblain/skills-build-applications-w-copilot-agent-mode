@@ -5,13 +5,13 @@ const Workouts = () => {
   const endpoint = `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/workouts/`;
 
   useEffect(() => {
+    console.log('Workouts API endpoint:', endpoint);
     fetch(endpoint)
       .then(res => res.json())
       .then(data => {
         const results = data.results || data;
         setWorkouts(results);
         console.log('Fetched workouts:', results);
-        console.log('Endpoint:', endpoint);
       })
       .catch(err => console.error('Error fetching workouts:', err));
   }, [endpoint]);

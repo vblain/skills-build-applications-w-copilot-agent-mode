@@ -5,13 +5,13 @@ const Users = () => {
   const endpoint = `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/users/`;
 
   useEffect(() => {
+    console.log('Users API endpoint:', endpoint);
     fetch(endpoint)
       .then(res => res.json())
       .then(data => {
         const results = data.results || data;
         setUsers(results);
         console.log('Fetched users:', results);
-        console.log('Endpoint:', endpoint);
       })
       .catch(err => console.error('Error fetching users:', err));
   }, [endpoint]);

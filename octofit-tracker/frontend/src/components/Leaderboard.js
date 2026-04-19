@@ -5,13 +5,13 @@ const Leaderboard = () => {
   const endpoint = `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/leaderboard/`;
 
   useEffect(() => {
+    console.log('Leaderboard API endpoint:', endpoint);
     fetch(endpoint)
       .then(res => res.json())
       .then(data => {
         const results = data.results || data;
         setLeaders(results);
         console.log('Fetched leaderboard:', results);
-        console.log('Endpoint:', endpoint);
       })
       .catch(err => console.error('Error fetching leaderboard:', err));
   }, [endpoint]);
